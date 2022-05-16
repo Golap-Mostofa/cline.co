@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = ({ children }) => {
-  const [dark,setdark] = useState(false)
+  const [dark, setdark] = useState(false)
   return (
     <div class='drawer  drawer-end' data-theme={dark ? 'dark' : 'light'}>
       <input id='my-drawer-3' type='checkbox' class='drawer-toggle' />
@@ -75,7 +75,7 @@ const Navbar = ({ children }) => {
                 </ul>
               </li>
               <label class='swap swap-rotate'>
-                <input type='checkbox'  onClick={()=>setdark(!dark)}/>
+                <input type='checkbox' onClick={() => setdark(!dark)} />
 
                 <svg
                   class='swap-on fill-current w-10 h-10'
@@ -102,11 +102,38 @@ const Navbar = ({ children }) => {
         <label for='my-drawer-3' class='drawer-overlay'></label>
         <ul class='menu p-4 overflow-y-auto w-80 bg-base-100'>
           <li>
-            <a>Sidebar Item 1</a>
+            <NavLink to='/' className='rounded-lg'>
+              Home
+            </NavLink>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <NavLink to='/about' className='rounded-lg'>
+              About
+            </NavLink>
           </li>
+          <li>
+            <NavLink to='/services' className='rounded-lg'>
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/contact' className='rounded-lg'>
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/login' className='rounded-lg'>
+              Login
+            </NavLink>
+          </li>
+          <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+            <div class="collapse-title text-xl font-medium">
+              Focus me to see content
+            </div>
+            <div class="collapse-content">
+              <p>tabindex="0" attribute is necessary to make the div focusable</p>
+            </div>
+          </div>
         </ul>
       </div>
     </div>
